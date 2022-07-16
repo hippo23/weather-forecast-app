@@ -1,0 +1,20 @@
+import './output.css';
+
+function App() {
+
+  fetch('http://api.openweathermap.org/data/2.5/weather?q=London&APPID=6dadccaac38e2cc4644ae2b3a488b719', { mode: 'cors' })
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(response) {
+      console.log(response);
+    })
+
+  return (
+    <div className="App bg-teal-300 h-screen w-screen">
+      hatdog
+    </div>
+  );
+}
+
+export default App;
