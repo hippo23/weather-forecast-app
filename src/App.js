@@ -15,7 +15,6 @@ function App() {
 
   const defaultForecastData = async () => {
     let data = await fetchForecastData(location);
-    console.log(data);
     return data;
   }
 
@@ -38,9 +37,8 @@ function App() {
   }, [location])
 
   return (
-    <div className="App bg-white h-screen w-screen grid grid-cols-10">
+    <div className="App bg-white h-auto min-h-screen w-screen grid grid-cols-10">
       <MainPage data={weatherData} forecast={forecastData} onLocationChange={handleChangeLocation} />
-      <WeatherBar />
     </div>
   );
 }

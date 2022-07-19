@@ -13,7 +13,7 @@ const WeeklyCard = (props) => {
         </div>
         <img className="lg:h-20 lg:w-20 h-10 w-10" src={require('../assets/cloudy.png')} alt="hatdog" />
       </div>
-      <div className="h-3/6 w-full flex flex-col pt-3 sm:flex-row font-bold text-sm sm:text-md lg:text-lg sm:justify-start items-center justify-end">
+      <div className="h-3/6 w-full flex flex-col pt-3 sm:flex-row font-bold text-xs lg:text-lg sm:justify-start items-center justify-end">
         <h1>
           {props.data ? days[(new Date(props.data.dt * 1000)).getDay()] : ''}
         </h1>

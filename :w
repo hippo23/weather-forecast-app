@@ -1,10 +1,10 @@
 const WeeklyCard = (props) => {
-  let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
+  let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   return (
     <div className="flex flex-col rounded-xl items-center justify-around bg-black/5 h-full w-full p-4">
-      <div className="flex sm:flex-row flex-col items-center justify-between h-3/6 w-full">
-        <div className="">
-          <h1 className="font-bold lg:text-xl text-xs">
+      <div className="flex flex-col items-center justify-between h-3/6 w-full">
+        <div className="bg-green-200">
+          <h1 className="font-bold lg:text-xl md:text-md text-sm">
             {props.data ? (Math.round((props.data.main.temp - 273.15) * 100) / 100) + ' °C' : ''}
           </h1>
           <h2 className="text-xs">
@@ -13,7 +13,7 @@ const WeeklyCard = (props) => {
         </div>
         <img className="lg:h-20 lg:w-20 h-10 w-10" src={require('../assets/cloudy.png')} alt="hatdog" />
       </div>
-      <div className="h-3/6 w-full flex flex-col pt-3 sm:flex-row font-bold text-sm sm:text-md lg:text-lg sm:justify-start items-center justify-end">
+      <div className="h-3/6 w-full flex flex-col pt-3 sm:flex-row font-bold text-xs lg:text-lg lg:justify-end justify-center">
         <h1>
           {props.data ? days[(new Date(props.data.dt * 1000)).getDay()] : ''}
         </h1>

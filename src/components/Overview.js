@@ -1,11 +1,15 @@
 import OverviewCard from './OverviewCard';
+import { ReactComponent as WeatherSvg } from './../assets/weather.svg';
+import { ReactComponent as WindSvg } from './../assets/wind.svg';
+import { ReactComponent as PressureSvg } from './../assets/pressure.svg';
+import { ReactComponent as TempSvg } from './../assets/temperature.svg';
 
 const Overview = (props) => {
 
   return (
     <div className="flex flex-col items-center justify-center w-full row-span-2 text-black">
-      <div className="w-full flex items-center justify-between">
-        <h3 className="font-bold lg:text-xl text-md">
+      <div className="w-full flex items-center justify-between pb-4">
+        <h3 className="font-bold lg:text-xl md:text-md text-sm">
           Daily Forecast
         </h3>
         <h4>
@@ -18,11 +22,11 @@ const Overview = (props) => {
           </a>
         </h4>
       </div>
-      <div className="w-full grid grid-cols-2 grid-rows-2 gap-4 mt-8">
-        <OverviewCard property="Wind Speed" value={props.data.wind ? props.data.wind.speed + ' km/h' : ''} />
-        <OverviewCard property="Pressure" value={props.data.main ? props.data.main.pressure + ' hPa' : ''} />
-        <OverviewCard property="Weather" value={props.data.weather ? props.data.weather[0].main : ''} />
-        <OverviewCard property="Temperature" value={props.data.main ? Math.round((props.data.main.temp - 273.15) * 100) / 100 + ' °C' : ''} />
+      <div className="w-full grid grid-cols-2 grid-rows-2 gap-4">
+        <OverviewCard property="Wind Speed" value={props.data.wind ? props.data.wind.speed + ' km/h' : ''} vector={<WindSvg className="h-10 w-10 fill-sky-500" />} />
+        <OverviewCard property="Pressure" value={props.data.main ? props.data.main.pressure + ' hPa' : ''} vector={<PressureSvg className="h-10 w-10 fill-sky-500" />} />
+        <OverviewCard property="Weather" value={props.data.weather ? props.data.weather[0].main : ''} vector={<WeatherSvg className="h-10 w-10 fill-sky-500" />} />
+        <OverviewCard property="Temperature" value={props.data.main ? Math.round((props.data.main.temp - 273.15) * 100) / 100 + ' °C' : ''} vector={<TempSvg className="h-10 w-10 fill-sky-500" />} />
       </div>
     </div>
   )
